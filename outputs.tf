@@ -20,7 +20,7 @@ output "imagebuilder_infrastructure_configurations_description" {
 }
 output "imagebuilder_infrastructure_configurations_instance_metadata_options" {
   description = "Map of instance_metadata_options values across all imagebuilder_infrastructure_configurations, keyed the same as var.imagebuilder_infrastructure_configurations"
-  value       = { for k, v in aws_imagebuilder_infrastructure_configuration.imagebuilder_infrastructure_configurations : k => v.instance_metadata_options if v.instance_metadata_options != null && length(v.instance_metadata_options) > 0 }
+  value       = { for k, v in aws_imagebuilder_infrastructure_configuration.imagebuilder_infrastructure_configurations : k => one(v.instance_metadata_options) if v.instance_metadata_options != null && length(v.instance_metadata_options) > 0 }
 }
 output "imagebuilder_infrastructure_configurations_instance_profile_name" {
   description = "Map of instance_profile_name values across all imagebuilder_infrastructure_configurations, keyed the same as var.imagebuilder_infrastructure_configurations"
@@ -36,7 +36,7 @@ output "imagebuilder_infrastructure_configurations_key_pair" {
 }
 output "imagebuilder_infrastructure_configurations_logging" {
   description = "Map of logging values across all imagebuilder_infrastructure_configurations, keyed the same as var.imagebuilder_infrastructure_configurations"
-  value       = { for k, v in aws_imagebuilder_infrastructure_configuration.imagebuilder_infrastructure_configurations : k => v.logging if v.logging != null && length(v.logging) > 0 }
+  value       = { for k, v in aws_imagebuilder_infrastructure_configuration.imagebuilder_infrastructure_configurations : k => one(v.logging) if v.logging != null && length(v.logging) > 0 }
 }
 output "imagebuilder_infrastructure_configurations_name" {
   description = "Map of name values across all imagebuilder_infrastructure_configurations, keyed the same as var.imagebuilder_infrastructure_configurations"
@@ -44,7 +44,7 @@ output "imagebuilder_infrastructure_configurations_name" {
 }
 output "imagebuilder_infrastructure_configurations_placement" {
   description = "Map of placement values across all imagebuilder_infrastructure_configurations, keyed the same as var.imagebuilder_infrastructure_configurations"
-  value       = { for k, v in aws_imagebuilder_infrastructure_configuration.imagebuilder_infrastructure_configurations : k => v.placement if v.placement != null && length(v.placement) > 0 }
+  value       = { for k, v in aws_imagebuilder_infrastructure_configuration.imagebuilder_infrastructure_configurations : k => one(v.placement) if v.placement != null && length(v.placement) > 0 }
 }
 output "imagebuilder_infrastructure_configurations_region" {
   description = "Map of region values across all imagebuilder_infrastructure_configurations, keyed the same as var.imagebuilder_infrastructure_configurations"
